@@ -57,39 +57,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Settings\Input\PlayerInputActions.cs" />
-    <Compile Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\ColorCorrectionEffect.cs" />
-    <Compile Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\NoiseEffect.cs" />
-    <Compile Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\SSAOEffect.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\DLAA.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset3.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\VignettingShader.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\MultiPassHollywoodFlares.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\SSAOShader.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\Blend.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\SSAA.shader" />
     <None Include="Assets\RetroLamps\Shaders\Lamps_rimShader_dust.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAA3Console.shader" />
     <None Include="Assets\_ImportedAssets_\Models\Kitchen Props\Readme.txt" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\VignetteShader.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ContrastComposite.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ColorCorrectionEffect.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BlendOneOne.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\BrightPassFilter.shader" />
     <None Include="Assets\RetroLamps\Shaders\Lamps_rimShader_simple.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_BloomAndFlares\SeparableBlurPlus.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_DepthOfField\SeparableBlur.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\ChromaticAberrationShader.shader" />
     <None Include="Assets\_ImportedAssets_\Audio\Angels and Demons (free)\readme.txt" />
     <None Include="Assets\RetroLamps\Shaders\Lamps_rimShader_specular.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderRGB.shader" />
     <None Include="Assets\RetroLamps\Shaders\Lamps_rimShaderSpecEmi.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAA2.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\NoiseEffectShaderYUV.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\NFAA.shader" />
-    <None Include="Assets\HorrorEnvironment_AbandonedManor\Standard Assets\Image Effects (Pro Only)\_Sources\Shaders\_Antialiasing\FXAAPreset2.shader" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
