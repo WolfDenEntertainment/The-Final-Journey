@@ -71,6 +71,24 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""Button"",
+                    ""id"": ""a944d405-f16b-4577-b2dc-70b5909e32b8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""96af07f7-b492-4afb-9304-ad97f3f841eb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -176,7 +194,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": ""negative"",
                     ""id"": ""ef906851-a665-4df3-a7d9-b8c1bae1e036"",
-                    ""path"": ""<Keyboard>/leftShift"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KBM"",
@@ -282,6 +300,50 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9aa215ff-262e-47a0-a93a-2406f34c2464"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c0b65e8b-d0d7-4bd7-9787-36bb22b0719c"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bfdaf075-b717-4685-b741-df4c0cf9abf6"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5d769443-42cd-4f8b-903d-e25a63b061f9"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -323,6 +385,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         m_Player_Vertical = m_Player.FindAction("Vertical", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
+        m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
+        m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -387,6 +451,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Vertical;
     private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_Inventory;
+    private readonly InputAction m_Player_Sprint;
+    private readonly InputAction m_Player_Escape;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -396,6 +462,8 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         public InputAction @Vertical => m_Wrapper.m_Player_Vertical;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
+        public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
+        public InputAction @Escape => m_Wrapper.m_Player_Escape;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -420,6 +488,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Inventory.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
                 @Inventory.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnInventory;
+                @Sprint.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @Sprint.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @Sprint.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSprint;
+                @Escape.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
+                @Escape.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
+                @Escape.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEscape;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -439,6 +513,12 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
                 @Inventory.started += instance.OnInventory;
                 @Inventory.performed += instance.OnInventory;
                 @Inventory.canceled += instance.OnInventory;
+                @Sprint.started += instance.OnSprint;
+                @Sprint.performed += instance.OnSprint;
+                @Sprint.canceled += instance.OnSprint;
+                @Escape.started += instance.OnEscape;
+                @Escape.performed += instance.OnEscape;
+                @Escape.canceled += instance.OnEscape;
             }
         }
     }
@@ -468,5 +548,7 @@ public partial class @PlayerInputActions : IInputActionCollection2, IDisposable
         void OnVertical(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

@@ -9,7 +9,11 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Wood Parquet Strip
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _METALLICSPECGLOSSMAP
+  - _NORMALMAP
+  - _OCCLUSIONMAP
+  - _PARALLAXMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -22,11 +26,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: e82f6155f44b3814698474ab8fa8127a, type: 3}
+        m_Texture: {fileID: 2800000, guid: ffe6a25f28c48274ea2b54fcedc399d5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: f855aa5e98bc9ac43bdfb4dd9383d4f8, type: 3}
+        m_Texture: {fileID: 2800000, guid: a76bd7b5e808cf8428e9e974be0928c1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -46,19 +50,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: ffe6a25f28c48274ea2b54fcedc399d5, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 3847b3900e30c9b4990391ccaa1fea15, type: 3}
+        m_Texture: {fileID: 2800000, guid: a0d48d8127caf424bb52d97a116d369e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 559c61f88287b764d83f16314e3518cc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2f89b1e56ce230c4eabdd2c0ad028295, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 13c8c36434d39e544ab0bc654bfa8f02, type: 3}
+        m_Texture: {fileID: 2800000, guid: 12bdf3c7b4001ff4ca63d3157841be49, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:

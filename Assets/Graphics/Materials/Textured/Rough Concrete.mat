@@ -9,7 +9,11 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Rough Concrete
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _METALLICSPECGLOSSMAP
+  - _NORMALMAP
+  - _OCCLUSIONMAP
+  - _PARALLAXMAP
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -22,11 +26,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: f5bfb07b69d32fa45b9535597898be7d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 27a2a1a77fe29a5439ccc282def6b2b6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 54a3ab1a3d6f2e845846759f03e62bd3, type: 3}
+        m_Texture: {fileID: 2800000, guid: e37ff7543d21ba4478427d6157bf63b1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -46,19 +50,19 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 27a2a1a77fe29a5439ccc282def6b2b6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
-        m_Texture: {fileID: 2800000, guid: 8d493841e1c744d4ca99fed27a1b21b0, type: 3}
+        m_Texture: {fileID: 2800000, guid: 93ca62fa1de58264fa72ae25eb57afb7, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 2800000, guid: 7858e7b27206cf7479e9f062e1428d4b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6b24299a978e00047aee226bf1ee80dd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ParallaxMap:
-        m_Texture: {fileID: 2800000, guid: 295a1506753761f4d9e0601f1baa185b, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6b24299a978e00047aee226bf1ee80dd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -96,7 +100,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
-    - _Parallax: 0.02
+    - _Parallax: 0.025
     - _QueueOffset: 0
     - _ReceiveShadows: 1
     - _Smoothness: 0
