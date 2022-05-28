@@ -25,12 +25,6 @@ public class Player : MonoBehaviour
         mainCamera = Camera.main.transform;
     }
 
-    void Update()
-    {
-        if (input.escape)
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-    }
-
     void FixedUpdate()
     {
         PhysicsMove();
@@ -59,10 +53,9 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Door door;
         if (other.CompareTag(doorTag))
-        {            
-            if (other.gameObject.TryGetComponent<Door>(out door))
+        {
+            if (other.gameObject.TryGetComponent<Door>(out Door door))
                 door.OpenDoor();
             else
                 Debug.Log("No door component.");
@@ -73,7 +66,9 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag(doorTag))
         {
-            other.GetComponent<Animator>().SetBool("IsOpen", false);
+            Animator anim = other.GetComponent<Animator>();
+            
+            if (anim != null) anim.SetBool("IsOpen", false);
         }
     }
 }

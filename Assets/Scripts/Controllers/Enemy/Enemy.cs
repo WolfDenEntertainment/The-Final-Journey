@@ -2,94 +2,53 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class Enemy : MonoBehaviour
 {
-    [Header("Enemy")]
-    [SerializeField] Transform target;
-	[SerializeField] float movementSpeed;
-	[SerializeField] float lifetime = 10;
-	[SerializeField] float energyDrainRate = 50;
-	[SerializeField] float range = 2f;
-	[SerializeField] float minDistance = 1;
+    [SerializeField] GhostStats target;
+    [SerializeField] float range = 5f;
+    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float energyDrainRate = 2.5f;
+    [SerializeField] float lifetime = 30f;
 
-    [Header("Wander")]
-	public float directionChangeInterval = 1;
-	public float maxHeadingChange = 30;
+    new Rigidbody rigidbody;
+    float timer;
 
-	CharacterController controller;
-	GhostStats player;
-	Vector3 targetRotation;
-	float heading;
-	float timer;
-
-	public float EnergyDrainRate { get => energyDrainRate; }
-
-    void Awake()
+    void Start()
     {
-        if (target == null)
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+        rigidbody = GetComponent<Rigidbody>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<GhostStats>();
+    }
 
-		if (target != null)
-			player = target.GetComponent<GhostStats>();
+    void FixedUpdate()
+    {        
+        if (IsPlayerInRange(range))
+            target.CurrentEnergy -= (energyDrainRate * range * Time.deltaTime) / 10;
+    }
 
-		controller = GetComponent<CharacterController>();
+    void Update()
+    {
+        transform.LookAt(target.transform);
+        
+        while (!IsPlayerInRange(range))
+            Follow();
 
-		// Set random initial rotation
-		heading = Random.Range(0, 360);
-		transform.eulerAngles = new Vector3(0, heading, 0);
+        if (timer < lifetime)
+            timer += Time.deltaTime;
 
+        if (timer >= lifetime)
+            Destroy(gameObject);
+    }
 
-		StartCoroutine(NewHeading());
-	}
+    private bool IsPlayerInRange(float range)
+    {
+        rigidbody.velocity = Vector3.zero;
+        return (target.transform.position - transform.position).magnitude <= range;
+    }
 
-	void Update()
-	{
-		if (target == null)
-		{
-			transform.eulerAngles = Vector3.Slerp(transform.eulerAngles, targetRotation, Time.deltaTime * directionChangeInterval);
-			var forward = transform.TransformDirection(Vector3.forward);
-			controller.SimpleMove(forward * movementSpeed * Time.deltaTime);
-		}
-		else
-		{
-			float distance = (target.position - transform.position).magnitude;
-			while (distance >= minDistance)
-			{
-				controller.enabled = false;
-				StopAllCoroutines();
-				Vector3 targetPosition = target.position + new Vector3(-3, 0, 0);
-
-				transform.position = Vector3.MoveTowards(transform.position, targetPosition, movementSpeed * Time.deltaTime);
-
-				if (distance <= range && player != null)
-					player.CurrentEnergy -= (EnergyDrainRate * Time.deltaTime * 4) / distance;
-			}
-        }
-
-		if (timer < lifetime)
-        {
-			timer += Time.deltaTime;
-
-			if (timer >= lifetime)
-				Destroy(gameObject);
-        }
-	}
-
-	IEnumerator NewHeading()
-	{
-		while (true)
-		{
-			NewHeadingRoutine();
-			yield return new WaitForSeconds(directionChangeInterval);
-		}
-	}
-
-	void NewHeadingRoutine()
-	{
-		var floor = transform.eulerAngles.y - maxHeadingChange;
-		var ceil = transform.eulerAngles.y + maxHeadingChange;
-		heading = Random.Range(floor, ceil);
-		targetRotation = new Vector3(0, heading, 0);
-	}
-
+    void Follow()
+    {
+        rigidbody.velocity = Vector3.ClampMagnitude(transform.forward * moveSpeed, 1.5f);
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+    }
 }

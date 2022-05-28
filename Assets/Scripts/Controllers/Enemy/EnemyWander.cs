@@ -7,9 +7,9 @@ using System.Collections;
 [RequireComponent(typeof(CharacterController))]
 public class EnemyWander : MonoBehaviour
 {
-	public float speed = 5;
-	public float directionChangeInterval = 1;
-	public float maxHeadingChange = 30;
+	[SerializeField] float speed = 5;
+	[SerializeField] float directionChangeInterval = 1;
+	[SerializeField] float maxHeadingChange = 30;
 
 	CharacterController controller;
 	float heading;

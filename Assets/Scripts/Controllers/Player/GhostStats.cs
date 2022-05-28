@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.VFX;
 
 public class GhostStats : MonoBehaviour
 {
@@ -13,26 +10,44 @@ public class GhostStats : MonoBehaviour
 
     [Header("UI")]
     [SerializeField] Slider energyBar;
+    [SerializeField] GameObject pauseMenuContainer;
 
     public float CurrentEnergy { get => currentEnergy; set => currentEnergy = value; }
+    PlayerControls input;
+    InteractController interaction;
+    bool isDead = false;
 
-    //public List<Ability> Abilities { get => abilities; }
-
-    void Start()
+    void Awake()
     {
+        input = GetComponent<PlayerControls>();
+        interaction = GetComponent<InteractController>();
+
         currentEnergy = maxEnergy;
         energyBar.maxValue = maxEnergy;
-        energyBar.value = maxEnergy;
+        energyBar.value = maxEnergy;        
     }
 
     void Update()
     {
+        if (isDead) Die();
         Regen();
 
         energyBar.value = currentEnergy;
 
         if (currentEnergy <= 0)
             currentEnergy = 0;
+
+        if (input.escape)
+        {
+            pauseMenuContainer.SetActive(true);
+            Cursor.visible = true;
+            Time.timeScale = 0;
+        }
+    }
+
+    void Die()
+    {
+        interaction.Ascend();
     }
 
     void Regen()
@@ -41,5 +56,16 @@ public class GhostStats : MonoBehaviour
             currentEnergy += energyRegenRate * Time.deltaTime;
     }
 
+    // Pause Menu Methods
+    public void ResumeGame()
+    {
+        pauseMenuContainer.SetActive(false);
+        Cursor.visible = false;
+        Time.timeScale = 1;
+    }
 
+    public void ExitGame()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
 }

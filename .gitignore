@@ -1,6 +1,8 @@
 *.meta
 Build
 Library
+Logs
 Temp
 UserSettings
 Assets/_ImportedAssets_
+Assembly-CSharp.csproj

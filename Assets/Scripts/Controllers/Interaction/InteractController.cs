@@ -148,7 +148,7 @@ public class InteractController : MonoBehaviour
         }
     }
 
-    void Ascend()
+    public void Ascend()
     {
         float decision = Random.Range(0, 100);
 

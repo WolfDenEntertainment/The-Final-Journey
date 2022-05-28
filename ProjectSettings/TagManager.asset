@@ -9,6 +9,9 @@ TagManager:
   - Enemy
   - Key
   - Interactable Object
+  - Grimoire
+  - Cabinet
+  - Drawer
   layers:
   - Default
   - TransparentFX
