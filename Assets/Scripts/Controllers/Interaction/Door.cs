@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] Animator anim;
     [SerializeField] Item doorKey;
     [SerializeField] bool isLocked = false;
 
-    Animator anim;
 
     private void Awake()
     {
-        anim = GetComponent<Animator>();
+        if (anim == null) anim = GetComponent<Animator>();
+        anim.Rebind();
 
         if (isLocked && doorKey == null)
             Debug.LogWarning("No key set for " + gameObject.name + ".");
@@ -33,6 +34,8 @@ public class Door : MonoBehaviour
         }
 
         if (!isLocked)
+        {
             anim.SetBool("IsOpen", true);
+        }
     }
 }

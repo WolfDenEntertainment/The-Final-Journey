@@ -33,8 +33,6 @@ public class GhostStats : MonoBehaviour
 
         if (currentEnergy <= 0)
             currentEnergy = 0;
-
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     void Regen()

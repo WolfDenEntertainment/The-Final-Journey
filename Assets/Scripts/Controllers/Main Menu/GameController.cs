@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
 
     public void StartNewGame()
     {
-        SceneManager.LoadScene("Gameplay_Main");
+        SceneManager.LoadScene("Gameplay");
         Cursor.visible = false;
     }
 

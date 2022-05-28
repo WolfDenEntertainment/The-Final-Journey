@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     Transform mainCamera;
     Rigidbody rb;
     PlayerControls input;
-    Door door;
     Vector3 velocity = Vector3.zero;
     
     void Start()
@@ -47,9 +46,10 @@ public class Player : MonoBehaviour
 
         Vector2 movement = input.GetMovement;
         Vector3 move = new(movement.x, 0f, movement.y) ;
+
+        velocity.y = input.GetVerticalMovement;
         move = (mainCamera.right * move.x) + (mainCamera.forward * move.z);
         move.y = 0;
-        velocity.y = input.GetVerticalMovement;
         move += velocity;
 
         float speed = input.isSprinting ? sprintSpeed : movementSpeed;
@@ -59,21 +59,19 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag(doorTag))
-        {
-            other.GetComponent<Door>().OpenDoor();
-        }
-
-        if (other.gameObject.CompareTag("Item"))
-        {
-            InventoryManager.Instance.AddItem(other.GetComponent<ItemObject>().Item);
-            Destroy(other.gameObject);
+        Door door;
+        if (other.CompareTag(doorTag))
+        {            
+            if (other.gameObject.TryGetComponent<Door>(out door))
+                door.OpenDoor();
+            else
+                Debug.Log("No door component.");
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag(doorTag))
+        if (other.CompareTag(doorTag))
         {
             other.GetComponent<Animator>().SetBool("IsOpen", false);
         }
