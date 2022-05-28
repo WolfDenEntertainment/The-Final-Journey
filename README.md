@@ -31,3 +31,5 @@ Other Assets
  - - https://assetstore.unity.com/packages/2d/textures-materials/sky/nightfall-night-skybox-pack-vol-ii-31250
  - AI adapted from Wander Script by Matthew Miner
  - - https://gist.github.com/mminer/1331271
+ - Game Icon 
+ - https://game-icons.net/
