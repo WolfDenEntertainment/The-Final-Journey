@@ -66,6 +66,7 @@ public class GhostStats : MonoBehaviour
 
     public void ExitGame()
     {
+        Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 }

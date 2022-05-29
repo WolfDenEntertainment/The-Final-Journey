@@ -25,8 +25,7 @@ public class InteractController : MonoBehaviour
         mainCamera = Camera.main.transform;
         input = GetComponent<PlayerControls>();
 
-        percentage = Random.Range(40, 90);
-        Debug.Log(percentage.ToString("0.00"));
+        percentage = Random.Range(40, 75);
     }
 
 
