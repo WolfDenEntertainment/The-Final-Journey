@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ec5d736835339cc4ba404ce623a9c2e4, type: 3}
-  m_Name: Hallway Bathroom Key
+  m_Name: Brass Candlestick
   m_EditorClassIdentifier: 
-  itemName: Hallway Bathroom Key
-  itemObject: {fileID: 439746065847388833, guid: cd1298c81b3cc764aa281d7df3714e52, type: 3}
-  itemIcon: {fileID: 21300000, guid: 00c22f10fd15633419c15df445fe6a22, type: 3}
-  type: 3
-  canStack: 0
+  itemName: New Item
+  itemObject: {fileID: 1387491739880959094, guid: dd42dae3d0c88214ba0f86a4f592d937, type: 3}
+  itemIcon: {fileID: 21300000, guid: 399ada54f29afbf48aec313a8ab6dd6f, type: 3}
+  type: 1
+  canStack: 1
   itemCount: 1

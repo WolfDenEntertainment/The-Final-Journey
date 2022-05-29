@@ -9,6 +9,10 @@ public class InteractController : MonoBehaviour
     [SerializeField] LayerMask interactionLayer;
     [SerializeField] float pushForce = 3;
     [SerializeField] float interactionDistance = 5;
+
+    [Header("End Game")]
+    [SerializeField] Item requiredItem;
+    [SerializeField] float requiredCount;
     [SerializeField] Image decisionEffect;
     [SerializeField] Sprite ascension;
     [SerializeField] Sprite descension;
@@ -60,7 +64,13 @@ public class InteractController : MonoBehaviour
 
         if (go.CompareTag("Grimoire"))
         {
-            Ascend();
+            int index = InventoryManager.Instance.GetItemIndex(requiredItem);
+            
+            if (index != -1)
+            {
+                if (InventoryManager.Instance.GetItemFromIndex(index).ItemCount == requiredCount)
+                    Ascend();
+            }
         }
 
         if (go.CompareTag("Interactable Object"))

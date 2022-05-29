@@ -65,7 +65,7 @@ public class InventoryManager : MonoBehaviour
         return -1;
     }
 
-    int GetItemIndex(Item item)
+    public int GetItemIndex(Item item)
     {
         for (int i = 0; i < inventory.Length; i++)
         {
@@ -119,5 +119,10 @@ public class InventoryManager : MonoBehaviour
                 return item;
         }
         return null;
+    }
+
+    public Item GetItemFromIndex(int index)
+    {
+        return inventory[index];
     }
 }

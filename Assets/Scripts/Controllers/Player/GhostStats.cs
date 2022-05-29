@@ -40,6 +40,7 @@ public class GhostStats : MonoBehaviour
         if (input.escape)
         {
             pauseMenuContainer.SetActive(true);
+            Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
             Time.timeScale = 0;
         }
@@ -60,6 +61,7 @@ public class GhostStats : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenuContainer.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1;
     }

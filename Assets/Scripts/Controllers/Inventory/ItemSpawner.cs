@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] Transform[] itemSpawnPoints;
-    [SerializeField] Transform[] itemsToSpawn;
+    [SerializeField] Item[] itemsToSpawn;
     
     void Awake()
     {
@@ -18,6 +18,12 @@ public class ItemSpawner : MonoBehaviour
     void SpawnItems()
     {
         int index;
+        int[] indicesToCheck = new int[itemsToSpawn.Length];
+
+        for (int i = 0; i < itemsToSpawn.Length; i++)
+        {
+            indicesToCheck[i] = -1;
+        }
 
         if (itemsToSpawn != null)
         {
@@ -25,11 +31,11 @@ public class ItemSpawner : MonoBehaviour
             {
                 index = Random.Range(0, itemSpawnPoints.Length);
 
-                if (itemSpawnPoints[index] != null)
+                if (indicesToCheck[i] == -1)
                 {
-                    Transform item = Instantiate(itemsToSpawn[i], itemSpawnPoints[index].position, Quaternion.identity);
-                    itemSpawnPoints[index] = null;
-                    item.name = itemsToSpawn[i].name;
+                    GameObject item = Instantiate(itemsToSpawn[i].ItemObject, itemSpawnPoints[index].position, Quaternion.identity);
+                    item.name = itemsToSpawn[i].ItemObject.name;
+                    indicesToCheck[i] = index;
                 }
             }
         }
