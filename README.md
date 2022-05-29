@@ -25,6 +25,10 @@ Models Used:
  - - https://assetstore.unity.com/packages/3d/props/interior/kitchen-props-free-80208
  - Retro Lamps v1
  - - https://assetstore.unity.com/packages/3d/props/interior/retro-lamps-v-1-19601#description
+ - Free Laptop
+ - - https://assetstore.unity.com/packages/3d/props/electronics/free-laptop-90315
+ - Shelf
+ - - https://assetstore.unity.com/packages/3d/props/interior/shelf-646
 
 Other Assets
  - Nightfall! Night Skybox Pack Vol.II
