@@ -36,6 +36,6 @@ Other Assets
  - AI adapted from Wander Script by Matthew Miner
  - - https://gist.github.com/mminer/1331271
  - Game Icon 
- - https://game-icons.net/
+ - - https://game-icons.net/
  - Settings Menu
  - - https://assetstore.unity.com/packages/add-ons/ultra-fast-settings-menu-creator-184495
