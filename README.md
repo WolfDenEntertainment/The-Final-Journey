@@ -27,8 +27,8 @@ Models Used:
  - - https://assetstore.unity.com/packages/3d/props/interior/retro-lamps-v-1-19601#description
  - Free Laptop
  - - https://assetstore.unity.com/packages/3d/props/electronics/free-laptop-90315
- - Shelf
- - - https://assetstore.unity.com/packages/3d/props/interior/shelf-646
+ - Obelisk - void
+ - - https://assetstore.unity.com/packages/3d/environments/fantasy/obelisk-void-221348
 
 Other Assets
  - Nightfall! Night Skybox Pack Vol.II
@@ -37,3 +37,5 @@ Other Assets
  - - https://gist.github.com/mminer/1331271
  - Game Icon 
  - https://game-icons.net/
+ - Settings Menu
+ - - https://assetstore.unity.com/packages/add-ons/ultra-fast-settings-menu-creator-184495
