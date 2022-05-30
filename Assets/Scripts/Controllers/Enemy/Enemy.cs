@@ -38,7 +38,7 @@ public class Enemy : MonoBehaviour
             Follow(direction);
 
         if (direction.magnitude <= range) 
-            target.CurrentEnergy -= (energyDrainRate * range * Time.deltaTime) / 10;
+            target.CurrentEnergy -= (energyDrainRate * range * Time.deltaTime) / 3.75f;
     }
 
     void Follow(Vector3 direction)
