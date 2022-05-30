@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2930503066442337683}
   - component: {fileID: 2684135112327922168}
   - component: {fileID: 3826161743324149351}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Master Bedroom Key
   m_TagString: Item
   m_Icon: {fileID: 0}

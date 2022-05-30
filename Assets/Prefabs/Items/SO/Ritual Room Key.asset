@@ -16,5 +16,5 @@ MonoBehaviour:
   itemObject: {fileID: 439746065847388833, guid: a8aa8bed7246aab4b827c0d5fa62b3e1, type: 3}
   itemIcon: {fileID: 21300000, guid: 00c22f10fd15633419c15df445fe6a22, type: 3}
   type: 3
-  canStack: 0
+  canStack: 1
   itemCount: 1

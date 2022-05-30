@@ -1,54 +1,48 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
 public class Enemy : MonoBehaviour
 {
     [SerializeField] GhostStats target;
-    [SerializeField] float range = 5f;
-    [SerializeField] float moveSpeed = 5f;
+    [SerializeField] float range = 3f;
     [SerializeField] float energyDrainRate = 2.5f;
     [SerializeField] float lifetime = 30f;
+    [SerializeField] float speed = 2.0f;
 
-    new Rigidbody rigidbody;
     float timer;
 
-    void Start()
+    void Awake()
     {
-        rigidbody = GetComponent<Rigidbody>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<GhostStats>();
-    }
 
-    void FixedUpdate()
-    {        
-        if (IsPlayerInRange(range))
-            target.CurrentEnergy -= (energyDrainRate * range * Time.deltaTime) / 10;
+        Debug.Log("Spawn Position:  " + transform.position.ToString());
     }
 
     void Update()
     {
-        transform.LookAt(target.transform);
-        
-        while (!IsPlayerInRange(range))
-            Follow();
-
-        if (timer < lifetime)
-            timer += Time.deltaTime;
+        timer += Time.deltaTime;
 
         if (timer >= lifetime)
+        {
+            timer = 0;
             Destroy(gameObject);
+        }
     }
 
-    private bool IsPlayerInRange(float range)
+    void LateUpdate()
     {
-        rigidbody.velocity = Vector3.zero;
-        return (target.transform.position - transform.position).magnitude <= range;
+        transform.LookAt(target.transform.position);
+
+        Vector3 direction = target.transform.position - transform.position;
+
+        if (direction.magnitude > range)
+            Follow(direction);
+
+        if (direction.magnitude <= range) 
+            target.CurrentEnergy -= (energyDrainRate * range * Time.deltaTime) / 10;
     }
 
-    void Follow()
+    void Follow(Vector3 direction)
     {
-        rigidbody.velocity = Vector3.ClampMagnitude(transform.forward * moveSpeed, 1.5f);
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, moveSpeed * Time.deltaTime);
+        transform.Translate(speed * Time.deltaTime * direction.normalized, Space.World);
     }
 }

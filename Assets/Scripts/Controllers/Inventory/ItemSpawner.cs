@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemSpawner : MonoBehaviour
 {
     [SerializeField] Transform[] itemSpawnPoints;
+    [SerializeField] Transform itemContainer;
     [SerializeField] Item[] itemsToSpawn;
     
     void Awake()
@@ -33,7 +34,7 @@ public class ItemSpawner : MonoBehaviour
 
                 if (indicesToCheck[i] == -1)
                 {
-                    GameObject item = Instantiate(itemsToSpawn[i].ItemObject, itemSpawnPoints[index].position, Quaternion.identity);
+                    GameObject item = Instantiate(itemsToSpawn[i].ItemObject, itemSpawnPoints[index].position, Quaternion.identity, itemContainer); ;
                     item.name = itemsToSpawn[i].ItemObject.name;
                     indicesToCheck[i] = index;
                 }

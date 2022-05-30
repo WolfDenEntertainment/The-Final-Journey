@@ -22,10 +22,11 @@ public class Door : MonoBehaviour
     {
         if (isLocked)
         {
-            if (InventoryManager.Instance.GetItem(doorKey) != null)
+            bool hasKey = Inventory.Instance.DoesContainItem(doorKey);
+            if (hasKey)
             {
                 isLocked = false;
-                InventoryManager.Instance.RemoveItem(doorKey);
+                Inventory.Instance.RemoveItem(doorKey);
             }
             else
             {

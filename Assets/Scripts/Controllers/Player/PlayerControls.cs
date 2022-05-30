@@ -29,7 +29,7 @@ public class PlayerControls : MonoBehaviour
         actions.Player.Sprint.canceled += _ => isSprinting = false;
 
         if (inventory == null)
-            inventory = InventoryManager.Instance.gameObject;
+            inventory = Inventory.Instance.gameObject;
 
     }
 

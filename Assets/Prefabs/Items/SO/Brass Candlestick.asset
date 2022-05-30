@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5d736835339cc4ba404ce623a9c2e4, type: 3}
   m_Name: Brass Candlestick
   m_EditorClassIdentifier: 
-  itemName: New Item
+  itemName: Brass Candlestick
   itemObject: {fileID: 1387491739880959094, guid: dd42dae3d0c88214ba0f86a4f592d937, type: 3}
   itemIcon: {fileID: 21300000, guid: 399ada54f29afbf48aec313a8ab6dd6f, type: 3}
   type: 1
   canStack: 1
-  itemCount: 1

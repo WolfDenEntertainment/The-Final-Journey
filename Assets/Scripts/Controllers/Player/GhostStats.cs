@@ -29,7 +29,9 @@ public class GhostStats : MonoBehaviour
 
     void Update()
     {
-        if (isDead) Die();
+        if (isDead) 
+            Die();
+
         Regen();
 
         energyBar.value = currentEnergy;

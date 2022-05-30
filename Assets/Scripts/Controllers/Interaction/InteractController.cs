@@ -21,6 +21,7 @@ public class InteractController : MonoBehaviour
     [SerializeField] AudioSource playerAudio;
     Transform mainCamera;
     PlayerControls input;
+    Inventory inventory;
     float percentage;
 
     void Start()
@@ -28,11 +29,11 @@ public class InteractController : MonoBehaviour
         Random.InitState(System.DateTime.Now.Second);
         mainCamera = Camera.main.transform;
         input = GetComponent<PlayerControls>();
+        inventory = Inventory.Instance;
+        inventory.gameObject.SetActive(false);
 
         percentage = Random.Range(40, 75);
     }
-
-
 
     public void Raycast()
     {
@@ -56,19 +57,24 @@ public class InteractController : MonoBehaviour
     {        
         Animator anim;
 
+        Debug.Log("Item:  " + go.name);
+
         if (go.CompareTag("Item"))
         {
-            if (InventoryManager.Instance.AddItem(go.GetComponent<ItemObject>().Item))
+            Item _item = go.GetComponent<ItemObject>().Item;
+
+            Debug.Log(_item.ItemName);
+            if (Inventory.Instance.AddItem(_item))
                 Destroy(go);
         }
 
         if (go.CompareTag("Grimoire"))
         {
-            int index = InventoryManager.Instance.GetItemIndex(requiredItem);
+            int index = Inventory.Instance.GetItemIndex(requiredItem);
             
             if (index != -1)
             {
-                if (InventoryManager.Instance.GetItemFromIndex(index).ItemCount == requiredCount)
+                if (Inventory.Instance.Slots[index].Count == requiredCount)
                     Ascend();
             }
         }

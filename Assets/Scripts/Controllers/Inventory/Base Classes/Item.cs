@@ -8,7 +8,6 @@ public class Item : ScriptableObject
     [SerializeField] Sprite itemIcon;
     [SerializeField] ItemType type;
     [SerializeField] bool canStack;
-    [SerializeField] int itemCount;
 
     public Item()
     {
@@ -17,7 +16,6 @@ public class Item : ScriptableObject
         itemIcon = null;
         type = ItemType.RitualResource;
         canStack = false;
-        itemCount = 0;
     }
 
     public string ItemName { get => itemName; }
@@ -25,7 +23,6 @@ public class Item : ScriptableObject
     public Sprite ItemIcon { get => itemIcon; }
     public ItemType Type { get => type; set => type = value; }
     public bool CanStack { get => canStack; }
-    public int ItemCount { get => itemCount; }
 }
 
 public enum ItemType
