@@ -19,6 +19,7 @@ public class InteractController : MonoBehaviour
     [SerializeField] AudioClip ascensionSound;
     [SerializeField] AudioClip descensionSound;
     [SerializeField] AudioSource playerAudio;
+    GameObject reticle;
     Transform mainCamera;
     PlayerControls input;
     Inventory inventory;
@@ -32,6 +33,7 @@ public class InteractController : MonoBehaviour
         inventory = Inventory.Instance;
         inventory.gameObject.SetActive(false);
 
+        reticle = GameObject.Find("Reticle");
         percentage = Random.Range(40, 75);
     }
 
@@ -165,6 +167,7 @@ public class InteractController : MonoBehaviour
 
     public void Ascend()
     {
+        reticle.SetActive(false);
         float decision = Random.Range(0, 100);
 
         playerAudio.Stop();
