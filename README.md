@@ -37,5 +37,3 @@ Other Assets
  - - https://gist.github.com/mminer/1331271
  - Game Icon 
  - - https://game-icons.net/
- - Settings Menu
- - - https://assetstore.unity.com/packages/add-ons/ultra-fast-settings-menu-creator-184495
