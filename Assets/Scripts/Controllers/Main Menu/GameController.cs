@@ -27,8 +27,6 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {        
-        Cursor.lockState = CursorLockMode.Locked;
-
         Init();
 
         DontDestroyOnLoad(this);
@@ -73,6 +71,7 @@ public class GameController : MonoBehaviour
     public void StartNewGame()
     {
         SceneManager.LoadScene("Gameplay");
+        Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
     }
 
