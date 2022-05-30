@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InteractController : MonoBehaviour
 {
@@ -19,9 +18,9 @@ public class InteractController : MonoBehaviour
     [SerializeField] AudioClip ascensionSound;
     [SerializeField] AudioClip descensionSound;
     [SerializeField] AudioSource playerAudio;
+
     GameObject reticle;
     Transform mainCamera;
-    PlayerControls input;
     Inventory inventory;
     float percentage;
 
@@ -29,7 +28,6 @@ public class InteractController : MonoBehaviour
     {
         Random.InitState(System.DateTime.Now.Second);
         mainCamera = Camera.main.transform;
-        input = GetComponent<PlayerControls>();
         inventory = Inventory.Instance;
         inventory.gameObject.SetActive(false);
 
@@ -168,6 +166,7 @@ public class InteractController : MonoBehaviour
     public void Ascend()
     {
         reticle.SetActive(false);
+        Inventory.Instance.Readout.gameObject.SetActive(false);
         float decision = Random.Range(0, 100);
 
         playerAudio.Stop();

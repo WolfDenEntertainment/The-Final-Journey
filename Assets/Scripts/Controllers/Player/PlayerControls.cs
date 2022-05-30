@@ -1,5 +1,4 @@
 using UnityEngine;
-using Cinemachine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(PlayerInput))]

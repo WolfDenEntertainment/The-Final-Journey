@@ -1,15 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
     [SerializeField] InventorySlot[] inventorySlots;
+    [SerializeField] TextMeshProUGUI readout;
 
     static Inventory instance;
 
     public static Inventory Instance { get => instance;}
     public InventorySlot[] Slots { get => inventorySlots; }
+    public TextMeshProUGUI Readout { get => readout; }
 
     void Awake()
     {
@@ -23,6 +25,8 @@ public class Inventory : MonoBehaviour
 
         for (int i = 0; i < inventorySlots.Length; i++)
             inventorySlots[i].RefreshInventorySlot();
+
+        readout.enableWordWrapping = false;
     }
     
     // Public methods
@@ -48,6 +52,7 @@ public class Inventory : MonoBehaviour
             {
                 Debug.Log("Increasing item count of " + item.ItemName);
                 inventorySlots[index].IncreaseCount();
+                DisplayInventoryReadout(item);
 
                 RefreshInventory();
                 return true;
@@ -57,6 +62,8 @@ public class Inventory : MonoBehaviour
             {
                 Debug.Log("Can stack, but not found.  Adding item:  " + item.ItemName);
                 inventorySlots[index].AddItem(item);
+
+                DisplayInventoryReadout(item);
 
                 RefreshInventory();
                 return true;
@@ -68,6 +75,7 @@ public class Inventory : MonoBehaviour
         {
             Debug.Log("Adding item:  " + item.ItemName);
             inventorySlots[index].AddItem(item);
+            DisplayInventoryReadout(item);
 
             RefreshInventory();
             return true;
@@ -148,5 +156,14 @@ public class Inventory : MonoBehaviour
         {
             inventorySlots[i].RefreshInventorySlot();
         }
+    }
+
+    IEnumerator DisplayInventoryReadout(Item item)
+    {
+        readout.text = item.ItemName + " added to inventory";
+
+        yield return new WaitForSeconds(2.5f);
+
+        readout.text = string.Empty;
     }
 }
